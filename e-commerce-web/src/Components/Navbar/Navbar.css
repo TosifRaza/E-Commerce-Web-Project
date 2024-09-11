@@ -62,3 +62,19 @@
    height: 40px;
    width: 40px;
 }
+.nav-login-cart button:active{
+   background-color: rgb(175, 163, 163);
+}
+.nav-cart-count{
+   height: 22px;
+   width: 22px;
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   margin-top: -35px;
+   margin-left: -55px;
+   border-radius:13px;
+   background: red;
+   color: wheat;
+   
+}
