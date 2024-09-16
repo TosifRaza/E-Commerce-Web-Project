@@ -1,8 +1,13 @@
-
+import Hero from '../Components/Hero/Hero.jsx'
+import Popular from '../Components/Popular/Popular.jsx'
+import Offers from '../Components/Offers/Offers.jsx'
 function Shop(){
    return(
       <div>
-        <h1>This Is Shop</h1>
+        <Hero/>
+        <Popular/>
+        <Offers/>
+        
       </div>
    )
 }
