@@ -17,14 +17,17 @@ const CartItems = () => {
       </div>
       <hr />
          {
-          all_product.map((e )=>{
+          all_product.map((e,i )=>{
+            
             // console.log(cartItems[e.id])
             if ( cartItems[e.id]>0) {
-
+            
                return <div>
+                  
                      <div className="cartitems_format cartitem_format_main">
-                        <img src={e.image} alt="" className='carticon_product_icon'/>
                         
+                        <img src={e.image} alt="" className='carticon_product_icon'/>
+                        {/* <li key={i}></li> */}
                         <p>{e.name}</p>
                         <p>{e.new_price}</p>
                         <button className='cartitems_quantity'>

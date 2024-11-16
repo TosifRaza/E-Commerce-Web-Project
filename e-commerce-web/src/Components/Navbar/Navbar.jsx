@@ -9,7 +9,7 @@ import nav_dropdown from "../Assets/Frontend_Assets/nav_dropdown.png"
 
 
 const Navbar=()=>{
-   const [value,setvalue]=useState("Shop")
+   const [value,setvalue]=useState("")
    const {getTotalCartItem}=useContext(ShopContext);
    const menuRef = useRef();
 
@@ -28,12 +28,19 @@ const dropdown_toggle = (e)=>{
          <img className="nav-dropdown" onClick={dropdown_toggle} src={nav_dropdown} alt="" />
          <ul ref={menuRef} className="nav-menu">
                <li onClick={()=>{setvalue("Shop")}}><Link  style={{textDecoration:'none'}}  to='/'  >Shop</Link>{value==="Shop"?<hr/>:<></>}</li> 
+
+
                <li onClick={()=>{setvalue("Man")}}><Link style={{textDecoration:'none'}} to='/Man'>Man</Link>{value==="Man"?<hr/>:<></>}</li> 
+
+
                <li onClick={()=>{setvalue("Woman")}}><Link style={{textDecoration:'none'}}  to='/Woman'  >Woman</Link>{value==="Woman"?<hr/>:<></>}</li> 
+
                <li onClick={()=>{setvalue("Kids")}}><Link  style={{textDecoration:'none'}}  to='/Kids'  >Kids</Link>{value==="Kids"?<hr/>:<></>}</li> 
             </ul>
             <div className="nav-login-cart">
-               <Link to='/login'><button >login</button></Link>
+               {localStorage.getItem('auth-token')
+               ? <button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}> Logout</button>:<Link to='/login'><button >login</button></Link>}
+               
                <Link to={"/cart"} > <img src={cart_icon} alt="" /></Link>
                <div className="nav-cart-count">{getTotalCartItem()}</div>
             </div>
